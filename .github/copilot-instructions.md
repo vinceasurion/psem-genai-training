@@ -2,6 +2,8 @@
 
 This backend is designed as a **modular, scalable, and maintainable REST API** using **Node.js + Express.js**. It follows best practices aligned with:
 
+Locally this project runs at <http://localhost:3001>
+
 - Maintainability
 - Scalability
 - Security
@@ -10,7 +12,16 @@ This backend is designed as a **modular, scalable, and maintainable REST API** u
 
 ## Project Structure
 
-server/
+```txt
+infrastructure/                 # CDK infrastructure code
+├── bin/
+│   └── app.js                 # CDK entry point
+├── lib/
+│   └── psem-genai-api-stack.js # Main stack definition
+├── package.json               # CDK dependencies
+├── tsconfig.json              # TypeScript config
+└── cdk.json                   # CDK configuration
+src/
 ├── index.js                   # Entry point, sets up app & routes
 ├── config/
 │   ├── db.js                  # DB connection logic (if needed)
@@ -37,6 +48,7 @@ server/
 ├── data/
 │   └── claims.json            # (Optional) Mock storage
 └── .env                       # Environment variables
+```
 
 Each module should be:
 
@@ -44,7 +56,7 @@ Each module should be:
 - Self-contained (model + routes + controller + service)
 - Plugged via `routes/index.js`
 
-## 🌐 API Modules Copilot Should Support
+## API Modules Copilot Should Support
 
 - `/api/claims` → Handles CRUD for insurance claims
 - `/api/users` → (Optional) Account or customer info
@@ -55,10 +67,10 @@ Each module should be:
 
 When generating or creating endpoint, follow this REST Guidelines.
 
-- GET /api/resource            # Read all resource
-- GET /api/resource/:id        # Read single resource
-- PUT /api/resource/:id        # Update single resource
-- DELETE /api/resource/:id     # Delete single resource
+- GET /api/resource # Read all resource
+- GET /api/resource/:id # Read single resource
+- PUT /api/resource/:id # Update single resource
+- DELETE /api/resource/:id # Delete single resource
 
 ## Core Principles
 
@@ -185,7 +197,6 @@ Before suggesting code, verify it meets these criteria:
 // Good: Proper error handling, validation, and structure
 async function processUserData(userData) {
   try {
-
     // Validate input
     if (!userData || !userData.email) {
       throw new Error('Invalid user data: email is required');
@@ -202,12 +213,11 @@ async function processUserData(userData) {
       success: true,
       data: result,
     };
-
   } catch (error) {
     // Log error with context
     logger.error('Failed to process user data', {
       error: error.message,
-      userId: userData?.id
+      userId: userData?.id,
     });
 
     // Return error response
@@ -215,25 +225,23 @@ async function processUserData(userData) {
       success: false,
       error: error.message,
     };
-
   }
 }
-
 ```
 
 ## Mounting routes
 
 ```js
 // routes/index.js
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
-router.use("/claims", require("./claims.routes"));
-router.use("/users", require("./users.routes")); // scalable
+router.use('/claims', require('./claims.routes'));
+router.use('/users', require('./users.routes')); // scalable
 
 module.exports = router;
 
 // index.js
 const app = express();
-app.use("/api", require("./routes"));
+app.use('/api', require('./routes'));
 ```
