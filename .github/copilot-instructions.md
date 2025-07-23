@@ -245,3 +245,11 @@ module.exports = router;
 const app = express();
 app.use('/api', require('./routes'));
 ```
+
+## GitHub Actions
+
+Use the following GitHub Actions runners depending on the task:
+
+- common-16gb
+- common-4gb
+- common-8gb
