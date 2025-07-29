@@ -19,6 +19,7 @@ It uses Material UI for styling and layout, and it is structured to facilitate e
 - It follows the Airbnb JavaScript Style Guide. https://github.com/airbnb/javascript
 - It uses ES6+ features and React best practices.
 - It uses functional components and hooks for state management.
+- All react component should use `.jsx` file extension.
 
 ## Project Structure
 
