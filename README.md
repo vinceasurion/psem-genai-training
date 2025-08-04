@@ -9,8 +9,10 @@ When running this project, make sure you have the following application setup in
 
 ## Clone the project
 
+Make sure to replace the `<PLACEHOLDER>` to your actual name (e.g. `vincentllauderes`)
+
 ```sh
-git clone git@github.com:llauderesv/psem-genai-training.git <name>-psem-genai-training
+git clone git@github.com:llauderesv/psem-genai-training.git <PLACEHOLDER>-psem-genai-training
 ```
 
 Before you start run the command below to use the latest node version
