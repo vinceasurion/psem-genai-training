@@ -10,9 +10,7 @@ When running this project, make sure you have the following application setup in
 ## Clone the project
 
 ```sh
-git clone git@github.com:llauderesv/psem-genai-training-arc-design.git 
-
-psem-genai-training-arc-design-<firstname-lastname>
+git clone git@github.com:llauderesv/psem-genai-training.git <name>-psem-genai-training
 ```
 
 Before you start run the command below to use the latest node version
