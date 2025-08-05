@@ -23,23 +23,36 @@ export default function ClaimEdit() {
 
   useEffect(() => {
     axios.get(`${API}/${id}`).then(res => {
-      console.log(res);
+      let data = res.data.data;
 
       setForm({
-        customerName: res.data.customerName,
-        brand: res.data.deviceInfo.brand,
-        phoneModel: res.data.deviceInfo.model,
-        serialNumber: res.data.deviceInfo.serialNumber,
-        issueType: res.data.incidentDetails.incidentType,
-        description: res.data.incidentDetails.description,
-        incidentLocation: res.data.incidentDetails.location,
+        customerName: data.customerName,
+        brand: data.deviceInfo.brand,
+        phoneModel: data.deviceInfo.model,
+        serialNumber: data.deviceInfo.serialNumber,
+        issueType: data.incidentDetails.incidentType,
+        description: data.incidentDetails.description,
+        incidentLocation: data.incidentDetails.location,
       });
     });
   }, [id]);
 
   const handleSubmit = async e => {
     e.preventDefault();
-    await axios.put(`${API}/${id}`, form);
+    let data = {
+      ...form,
+      deviceInfo: {
+        brand: form.brand,
+        model: form.phoneModel,
+        serialNumber: form.serialNumber,
+      },
+      incidentDetails: {
+        incidentType: form.issueType,
+        description: form.description,
+        location: form.incidentLocation,
+      },
+    };
+    await axios.put(`${API}/${id}`, data);
     navigate('/');
   };
 

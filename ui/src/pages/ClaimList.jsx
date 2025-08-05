@@ -33,7 +33,7 @@ function ClaimList() {
    */
   const fetchClaims = async () => {
     const res = await axios.get(API);
-    setClaims(res.data);
+    setClaims(res.data.data);
   };
 
   /**
