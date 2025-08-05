@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "aa3385a4-6871-4270-9775-05d848583f5e",
+		"name": "psem genai training api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30416177"
+	},
+	"item": [
+		{
+			"name": "get claim",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/claims/f47ac10b-58cc-4372-a567-0e02b2c3d479",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"claims",
+						"f47ac10b-58cc-4372-a567-0e02b2c3d479"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all claim",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/claims",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"claims"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create claims",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerName\": \"Micheal Brown\",\n    \"deviceInfo\": {\n        \"brand\": \"Google\",\n        \"model\": \"Pixel 9\",\n        \"serialNumber\": \"GP9876543\",\n        \"purchaseDate\": \"2025-05-10T00:00:00.000Z\",\n        \"purchasePrice\": 899.99\n    },\n    \"incidentDetails\": {\n        \"incidentDate\": \"2025-06-28T09:15:00.000Z\",\n        \"incidentType\": \"loss\",\n        \"description\": \"Left phone in taxi cab, unable to recover\",\n        \"location\": \"Chicago, IL\"\n    },\n    \"claimAmount\": 899.99,\n    \"approvedAmount\": 799.99,\n    \"attachments\": [],\n    \"notes\": [\n        {\n            \"id\": \"note-456\",\n            \"author\": \"Jane Doe\",\n            \"content\": \"Claim approved with $100 deductible\",\n            \"timestamp\": \"2025-07-10T11:30:00.000Z\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/claims",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"claims"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

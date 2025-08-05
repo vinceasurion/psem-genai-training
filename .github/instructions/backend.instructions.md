@@ -41,7 +41,7 @@ server/
 │   ├── logger.js              # (Optional) Logging util
 │   └── validator.js           # Shared validation helper
 ├── data/
-│   └── claims.json            # (Optional) Mock storage
+│   └── claims.json            # (Optional) Mock storage, exclude this into nodemon refresh
 └── .env                       # Environment variables
 ```
 
