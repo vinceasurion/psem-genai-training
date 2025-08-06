@@ -18,9 +18,9 @@ This infrastructure is designed to deploy the front-end and back-end in AWS Clou
 
 infra/ # CDK infrastructure code
 ├── bin/
-│ └── app.js # CDK entry point
+│ └── app.ts # CDK entry point
 ├── lib/
-│ └── psem-genai-api-stack.js # Main stack definition
+│ └── psem-genai-api-stack.ts # Main stack definition
 ├── package.json # CDK dependencies
 ├── tsconfig.json # TypeScript config
 └── cdk.json # CDK configuration
